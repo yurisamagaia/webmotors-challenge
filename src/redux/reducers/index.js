@@ -27,17 +27,11 @@ function dataReducer(state = INITIAL_DATA, action) {
         action.data.sizeSelected = action.size
         newItem = [...state.itemsAdded, action.data];
         let newTotal = calcTotal(newItem)
-        if(newItem.length < 2) {
-          return {
-            ...state,
-            itemsAdded: newItem,
-            total: newTotal
-          };
-        } else {
-          return {
-            ...state
-          };
-        }
+        return {
+          ...state,
+          itemsAdded: newItem,
+          total: newTotal
+        };
     }
     case REMOVE_ITEM:
       const newItems = state.itemsAdded.filter((p) =>
